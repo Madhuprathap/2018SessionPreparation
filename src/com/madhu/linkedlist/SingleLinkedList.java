@@ -6,6 +6,7 @@ public class SingleLinkedList<N extends ILinkedListNode<E>, E> implements ILinke
 	N root = null;
 	
 	public N getRoot() {
+//		System.out.println(this.getClass().getSimpleName());
 		return root;
 	}
 

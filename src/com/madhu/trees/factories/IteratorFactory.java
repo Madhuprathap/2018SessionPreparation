@@ -13,10 +13,12 @@ public class IteratorFactory<E extends INode> {
 	
 	HashMap<OrderType, IteratorFactoryCommand<E>> map = new HashMap<>();
 	
+	// Command Interface
 	public static interface IteratorFactoryCommand<E> {
 		Iterator<E> execute(ITree tree);
 	}
 	
+	// Factory 
 	public IteratorFactory() {
 		map.put(OrderType.PREORDER, new IteratorFactoryCommand<E>() {
 
