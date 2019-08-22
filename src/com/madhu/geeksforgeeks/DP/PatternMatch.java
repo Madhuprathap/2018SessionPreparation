@@ -1,5 +1,6 @@
 package com.madhu.geeksforgeeks.DP;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -9,6 +10,12 @@ import java.util.regex.Pattern;
 
 // i -> to track the string to compare
 // j -> to track the regex
+
+// ---------regex
+// -
+// -
+// -
+// text
 
 public class PatternMatch {
 
@@ -33,11 +40,16 @@ public class PatternMatch {
 		}
 		// with 0 length text
 		for (int i = 1; i <= regex.length(); i++) {
-			T[0][i] = false;
+			// Only '*' can match with empty string
+			if (regex.charAt(i-1) == '*')
+	            T[0][i] = T[0][i - 1];
+			else T[0][i] = false;
 		}
+		
 		
 		for (int i = 1; i <= text.length(); i++) {
 			for (int j = 1; j <= regex.length(); j++) {
+				// text and regex char match or regex char is '.' i.e. any one character
 				if (text.charAt(i-1) == regex.charAt(j-1) || regex.charAt(j-1) == '.') {
 					T[i][j] = T[i-1][j-1];
 				} 
@@ -52,11 +64,13 @@ public class PatternMatch {
 					} else {
 						T[i][j] = false;
 					}
+//					T[i][j] = T[i-1][j] || T[i][j-1];
 				} else {
 					T[i][j] = false;
 				}
 			}
 		}
+		Arrays.stream(T).map(Arrays::toString).forEach(System.out::println);
 		return T[text.length()][regex.length()];
 	}
 

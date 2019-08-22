@@ -2,6 +2,7 @@ package com.madhu.backtracking;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class NQueensProblem {
 	
@@ -27,10 +28,12 @@ public class NQueensProblem {
 		size = scanner.nextInt();
 		queensPositions = new Pair[size];
 		positionQueens(0, queensPositions);
+//		Stream.of(queensPositions).forEach(pair -> System.out.println(pair.row + " " + pair.col));
 		Arrays.stream(queensPositions).forEach(pair -> System.out.println(pair.row + " " + pair.col));
 	}
 
 	private static boolean positionQueens(int row, Pair[] queensPositions) {
+		// Base condition; if satisfied we got the solution
 		if (row == size) {
 			return true;
 		}

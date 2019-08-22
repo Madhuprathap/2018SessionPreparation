@@ -23,6 +23,7 @@ public class LIS {
 			for (int j = 0; j < i; j++) {
 				if (arr[i] > arr[j] && lisMemory[j] + 1 > lisMemory [i]) {
 					lisMemory [i] = lisMemory[j] + 1;
+					// we have to loop completely because there can be a bigger LIS with out considering current element 
 				}
 			}
 		}

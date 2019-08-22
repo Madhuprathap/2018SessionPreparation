@@ -3,6 +3,7 @@ package com.madhu.backtracking;
 import java.util.Arrays;
 
 import com.madhu.geeksforgeeks.DP.LCS;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 /*Find row, col of an unassigned cell
 If there is none, return true
@@ -45,7 +46,7 @@ public class Sudoko {
 	}
 	
 	private static boolean solveSudoku(int[][] grid) {
-		//callby-ref so that we can revert to zero while backtracking.
+		//callby-ref so that we have to revert to zero while backtracking.
 		int[] rowCol = new int[2];
 		if (!findUnassignedLocation(grid, rowCol)) {
 			return true; //success
@@ -61,6 +62,7 @@ public class Sudoko {
 					return true;
 				}
 				
+				//back tracking
 				grid[row][col] = 0;
 			}
 		}

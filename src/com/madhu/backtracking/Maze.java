@@ -26,11 +26,12 @@ public class Maze {
 	}
 
 	private static boolean solveMaze(int[][] input, int[][] output, int row, int col) {
-		if (row == input.length-1 && col == input.length-1) {
-			output[row][col] = 1;
-			return true;
-		}
 		if (isSafe(input, row, col)) {
+			// Base condition
+			if (row == input.length-1 && col == input.length-1) {
+				output[row][col] = 1;
+				return true;
+			}
 			output[row][col] = 1;
 			
 			if (solveMaze(input, output, row+1, col)) {
@@ -41,6 +42,7 @@ public class Maze {
 				return true;
 			}
 			
+			// back tracking we have to revert the modified array to base state
 			output[row][col] = 0;
 			return false;
 		}

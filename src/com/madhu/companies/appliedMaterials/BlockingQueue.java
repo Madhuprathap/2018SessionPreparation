@@ -44,7 +44,7 @@ public class BlockingQueue<T> {
 		lock.lock();
 		try{
 			while (queue.isEmpty()) {
-				notEmpty.await();;
+				notEmpty.await();
 			}
 			T out = queue.getFirst();
 			notFull.notifyAll();

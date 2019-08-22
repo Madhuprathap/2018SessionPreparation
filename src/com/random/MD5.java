@@ -11,6 +11,9 @@ public class MD5 {
         BigInteger number = new BigInteger(1, messageDigest);
         String hashtext = number.toString(16);
         System.out.println(hashtext);
+        
+        
+        System.out.println(true && false == false);
 	}
 
 }

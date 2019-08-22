@@ -7,7 +7,7 @@ O(n) Complexity*/
 public class LargestSumContiguousSubArray {
 
 	public static void main(String[] args) {
-		int [] array = {-2, -3, -4, -1, -2, -1, -5, -3};
+		int [] array = {-2, -3, 4, -1, -2, 1, 5, -3};
 		// Does not handle negative array
 		int max_so_for = 0;
 		int curr_max = 0;
